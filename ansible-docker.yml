@@ -5,7 +5,7 @@
   tasks:
 
     - name: create docker image using war file
-      command: docker build -t devops_ansible_pipeline:latest .
+      command: docker build . -t devops_ansible_pipeline:latest
       args:
         chdir: /opt/docker
 
