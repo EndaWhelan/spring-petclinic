@@ -1,6 +1,6 @@
 ---
 - name: dev pods
-  hosts: kubernetes 
+  hosts: all 
   user: ubuntu
  
   tasks: 

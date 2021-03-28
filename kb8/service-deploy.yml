@@ -1,6 +1,6 @@
 ---
 - name: create service
-  hosts: kubernetes
+  hosts: all
   # become: true
   user: ubuntu
 
