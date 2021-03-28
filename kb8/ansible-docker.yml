@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+
+    - name: create docker image using war file
+      command: docker build -t devops_ansible_kb8_pipeline:latest .
+      args:
+        chdir: /opt/kubernetes
+
+    - name: create tag to image
+      command: docker tag devops_ansible_kb8_pipeline ewhelan/devops_ansible_kb8_pipeline
+
+    - name: push image on to dockerhub
+      command: docker push ewhelan/devops_ansible_kb8_pipeline
+
+    - name: remove docker images from ansible server
+      command: docker rmi devops_ansible_kb8_pipeline:latest ewhelan/devops_ansible_kb8_pipeline
+      ignore_errors: yes

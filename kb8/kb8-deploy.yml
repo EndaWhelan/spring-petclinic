@@ -1,0 +1,11 @@
+---
+- name: dev pods
+  hosts: kubernetes 
+  user: ubuntu
+ 
+  tasks: 
+  - name: deployment
+    command: kubectl apply -f deploy.yml
+ 
+  - name: update pods
+    command: kubectl rollout restart deploy.v1.apps/deployment
